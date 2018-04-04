@@ -1,0 +1,31 @@
+{
+  "name": "truffle-ts-percel-box",
+  "version": "0.1.0",
+  "description": "truffle box",
+  "repository": {
+    "type": "git",
+    "url": "http://"
+  },
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "clean": "del-cli dist && del-cli .cache && del-cli build"
+  },
+  "keywords": [
+    "dapp",
+    "ethereum",
+    "truffle",
+    "box",
+    "typescript",
+    "percel"
+  ],
+  "author": "YuichiNukiyama",
+  "license": "MIT",
+  "devDependencies": {
+    "del-cli": "^1.1.0",
+    "parcel-bundler": "^1.7.0",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "web3": "^1.0.0-beta.33"
+  }
+}
