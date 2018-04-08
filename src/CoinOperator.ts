@@ -8,7 +8,7 @@ export default class ConinOperator {
     private readonly metaCoinContract: Contract;
 
     public constructor() {
-        this.web3 = new Web3(Web3.givenProvider || "ws://localhost:9545");
+        this.web3 = new Web3("ws://localhost:9545");
         /* Notice: `metaCoin.networks["4447"].address` return the address when truffle deployed the contract.
         *  4447 is default network id of truffle develop.
         *  for more detail, see `../buid/contract/MetaCoin.json`.
