@@ -1,5 +1,5 @@
-import ConinOperator from "./ConinOperator";
-const coinOperator = new ConinOperator();
+import CoinOperator from "./CoinOperator";
+const coinOperator = new CoinOperator();
 
 window.onload = () => {
 
