@@ -12,7 +12,7 @@ I'm happy if this sample is useful for learning etheruem.
 
 2. Download the box. This also takes care of installing the necessary dependencies.
     ```javascript
-    truffle unbox truffle-ts-percel-box
+    truffle unbox YuichiNukiyama/truffle-ts-percel-box
     ```
 
 **NOTE**: This box depend on Web3.js 1.0.0-beta. And this package can't install on `Windows` without build-tools.

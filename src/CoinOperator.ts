@@ -3,7 +3,7 @@ import metaCoin from "../build/contracts/MetaCoin.json";
 import { Contract } from "web3/types";
 
 
-export default class ConinOperator {
+export default class CoinOperator {
     private readonly web3: Web3;
     private readonly metaCoinContract: Contract;
 
