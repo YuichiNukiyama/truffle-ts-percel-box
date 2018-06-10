@@ -66,8 +66,17 @@ window.onload = () => {
                 const inputAmount =  document.getElementById("sendCoin_amount") as HTMLInputElement;
 
                 // call contract method.
-                await coinOperator.sendCoin(inputFrom.value, inputTo.value, parseInt(inputAmount.value));
-                showResult("Please check getBalance method. If sendCoin executed successfully, getBalance method will return new value.");
+                const transaction = await coinOperator.sendCoin(inputFrom.value, inputTo.value, parseInt(inputAmount.value));
+
+                const intervalId = setInterval(async () => {
+                    // check whtether above transaction is mined.
+                    if (await coinOperator.isMined(transaction.transactionHash)) {
+                        clearInterval(intervalId);
+                        showResult("Please check getBalance method. If sendCoin executed successfully, getBalance method will return new value.");
+                        return;
+                    }
+                    showResult("Please wait for a few seconds.");
+                }, 1000);
             });
 
         /**

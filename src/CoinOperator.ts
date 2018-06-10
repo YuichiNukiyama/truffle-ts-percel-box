@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import metaCoin from "../build/contracts/MetaCoin.json";
-import { Contract } from "web3/types";
+import { Contract, TransactionReceipt } from "web3/types";
 
 
 export default class CoinOperator {
@@ -41,7 +41,19 @@ export default class CoinOperator {
                 .call({ from: address });
     }
 
-    public sendCoin(fromAddress: string, toAddress: string, amount: number): Promise<boolean> {
+    /**
+     * check whether the transaction is mined in the block.
+     * @param hash hash value of Transaction.
+     */
+    public async isMined(hash: string): Promise<boolean> {
+        const result = await this.web3.eth.getTransaction(hash);
+        if(result.blockNumber) {
+            return true;
+        }
+        return false;
+    }
+
+    public sendCoin(fromAddress: string, toAddress: string, amount: number): Promise<TransactionReceipt> {
         return this.metaCoinContract.methods.sendCoin(toAddress, amount)
             .send({ from: fromAddress });
     }
